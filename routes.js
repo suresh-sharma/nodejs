@@ -1,28 +1,16 @@
 const express = require('express');
+const userController=require('./Controller/UserController')
 const router = express.Router();
 
 // Define routes
-router.get('/users', (req, res) => {
-  res.send('List of users');
-});
+router.get('/getallusers', userController.GetAllUser);
 
-router.get('/users/:id', (req, res) => {
-  const userId = req.params.id;
-  res.send(`Details of user ${userId}`);
-});
+router.get('/getuser/:id', userController.GetUserById);
 
-router.post('/users', (req, res) => {
-  res.send('Create a new user');
-});
+router.post('/createuser', userController.CreateUser);
 
-router.put('/users/:id', (req, res) => {
-  const userId = req.params.id;
-  res.send(`Update user ${userId}`);
-});
+router.put('/updateuser/:id', userController.UpdateUser);
 
-router.delete('/users/:id', (req, res) => {
-  const userId = req.params.id;
-  res.send(`Delete user ${userId}`);
-});
+router.delete('/deleteuser/:id', userController.DeleteUser);
 
 module.exports = router;

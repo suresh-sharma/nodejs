@@ -19,7 +19,7 @@ const options = {
         email: "info@node.in",
       },
     },
-    host: "localhost:8000",
+    host: "localhost:3000",
     basePath: "/",
     schemes: ["http","https"],
     consumes: ["application/json"],
