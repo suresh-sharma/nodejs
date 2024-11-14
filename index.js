@@ -8,7 +8,7 @@ const swaggerUi = require('swagger-ui-express');
 const cors = require('cors');
 const mangoose=require("mongoose");
 const { error } = require('node:console');
-const dotenv=require("dotenv").config();
+require("dotenv").config();
 const app=express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 const server=createServer(app);
 const hostname = '127.0.0.1';
 const port = 3000;
+console.log("================",process.env.DATABASE_URL);
 var database=mangoose.connect(process.env.DATABASE_URL,{family:4});
 database.then(() => {
   console.log("Successfully connected to the database");    
